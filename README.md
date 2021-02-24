@@ -1,1 +1,3 @@
-# simple_grpc_server
+$ go run main.go 
+
+execute to run the server
