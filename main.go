@@ -17,19 +17,19 @@ type HelloServiceServer struct{}
 
 var p1 = pb.Person{
 	Id:   1,
-	Name: "Sachintha",
+	Name: "John Doe",
 	Age:  35,
 }
 
 var p2 = pb.Person{
 	Id:   2,
-	Name: "Thiwanka",
+	Name: "Cerberus Nastasya",
 	Age:  38,
 }
 
 var p3 = pb.Person{
 	Id:   3,
-	Name: "Janaka",
+	Name: "Backer Smith",
 	Age:  38,
 }
 
@@ -37,7 +37,7 @@ var list = []*pb.Person{&p1, &p2, &p3}
 
 func (s *HelloServiceServer) GetInfo(ctx context.Context, request *pb.GetInfoRequest) (*pb.GetInfoResponse, error) {
 
-	fmt.Println("requested id is : %v", request.Id)
+	fmt.Printf("requested id is : %v \n", request.Id)
 
 	for _, s := range list {
 		if request.Id == s.Id {
@@ -60,7 +60,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error %v", err)
 	}
-	fmt.Printf("Server is listening on %v...", address)
+	fmt.Printf("Server is listening on %v... \n", address)
 	s := grpc.NewServer()
 
 	userService := &HelloServiceServer{}
